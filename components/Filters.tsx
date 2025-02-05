@@ -1,68 +1,67 @@
 "use client";
-import { useGlobalContext } from '@/context/globalContext'
-import React from 'react'
+import { useGlobalContext } from "@/context/globalContext";
+import React from "react";
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
-import { CircleDot, Delete, Ruler, SortAsc, Weight, Zap } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from "./ui/button";
+import { CircleDot, Delete, Ruler, SortAsc, Weight, Zap } from "lucide-react";
 import { Input } from "./ui/input";
 
 const pokemonTypes = [
-    "Normal",
-    "Fire",
-    "Water",
-    "Electric",
-    "Grass",
-    "Ice",
-    "Fighting",
-    "Poison",
-    "Ground",
-    "Flying",
-    "Psychic",
-    "Bug",
-    "Rock",
-    "Ghost",
-    "Dragon",
-    "Dark",
-    "Steel",
-    "Fairy",
+  "Normal",
+  "Fire",
+  "Water",
+  "Electric",
+  "Grass",
+  "Ice",
+  "Fighting",
+  "Poison",
+  "Ground",
+  "Flying",
+  "Psychic",
+  "Bug",
+  "Rock",
+  "Ghost",
+  "Dragon",
+  "Dark",
+  "Steel",
+  "Fairy",
 ];
 
 const pokemonAbilities = [
-    "Overgrow",
-    "Blaze",
-    "Torrent",
-    "Shield Dust",
-    "Shed Skin",
-    "Compound Eyes",
-    "Swarm",
-    "Keen Eye",
-    "Run Away",
-    "Intimidate",
-    "Static",
-    "Sand Veil",
-    "Synchronize",
-    "Levitate",
-    "Pressure",
-    "Adaptability",
-    "Multiscale",
-    "Sturdy",
-    "Inner Focus",
-    "Guts",
+  "Overgrow",
+  "Blaze",
+  "Torrent",
+  "Shield Dust",
+  "Shed Skin",
+  "Compound Eyes",
+  "Swarm",
+  "Keen Eye",
+  "Run Away",
+  "Intimidate",
+  "Static",
+  "Sand Veil",
+  "Synchronize",
+  "Levitate",
+  "Pressure",
+  "Adaptability",
+  "Multiscale",
+  "Sturdy",
+  "Inner Focus",
+  "Guts",
 ];
 
-
 function Filters() {
-    const {handleFilterChange,filters,clearFilters,} = useGlobalContext()
-    return (
-        <div className="mt-8 px-16 py-4 flex items-center justify-between">
-            <div className="flex flex-wrap gap-4 items-center">
-            <Select
+  const { handleFilterChange, filters, clearFilters } = useGlobalContext();
+  return (
+    <div className="mt-8 px-16 py-4 flex items-center justify-between">
+      <div className="flex flex-wrap gap-4 items-center">
+        <Select
           value={filters.type}
           onValueChange={(value) => handleFilterChange("type", value)}
         >
@@ -83,7 +82,6 @@ function Filters() {
             ))}
           </SelectContent>
         </Select>
-
 
         <Select
           value={filters.ability}
@@ -119,6 +117,7 @@ function Filters() {
             onChange={(e) => handleFilterChange("weight", e.target.value)}
           />
         </div>
+
         <div className="relative">
           <Ruler className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
           <Input
@@ -130,6 +129,7 @@ function Filters() {
             focus-visible:ring-2 focus-visible:ring-gray-200"
           />
         </div>
+
         <Select
           value={filters.sortOrder}
           onValueChange={(value) => handleFilterChange("sortOrder", value)}
@@ -149,17 +149,17 @@ function Filters() {
             <SelectItem value="desc">Descending</SelectItem>
           </SelectContent>
         </Select>
-            </div>
+      </div>
 
-            <Button
-                onClick={clearFilters}
-                className="u-shadow-2 font-bold bg-[#6c5ce7] rounded-lg flex items-center gap-1"
-            >
-                <Delete className="mr-2 h-5 w-5" />
-                Clear Filters
-            </Button>
-        </div>
-    )
+      <Button
+        onClick={clearFilters}
+        className="u-shadow-2 font-bold bg-[#6c5ce7] rounded-lg flex items-center gap-1"
+      >
+        <Delete className="mr-2 h-5 w-5" />
+        Clear Filters
+      </Button>
+    </div>
+  );
 }
 
-export default Filters
+export default Filters;

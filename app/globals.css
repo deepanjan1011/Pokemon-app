@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
 
 @layer base {
   :root {
@@ -68,14 +73,25 @@
   }
 }
 
-
 body {
   color: #fff;
   background: #f6f8fc;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* HTML: <div class="loader"></div> */
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(13deg, #6c5ce7, #4b59f7);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #dde0e5;
+}
+
 .loader {
   font-weight: bold;
   font-family: sans-serif;
@@ -83,20 +99,21 @@ body {
   animation: l1 1s linear infinite alternate;
 }
 .loader:before {
-  content:"Loading...";
+  content: "Loading...";
   color: #6c5ce7;
   font-size: 6.5rem;
   font-weight: bold;
 }
 @keyframes l1 {
-  to{
+  to {
     opacity: 0;
   }
 }
 
-.u-shadow-1{
-  box-shadow: 1px 4px 8px rgba(0,0,0,0.05);
+/* Utilities */
+.u-shadow-1 {
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.05);
 }
-.u-shadow-2{
-  box-shadow: 1px 6px 10px rgba(0,0,0,0.05);
+.u-shadow-2 {
+  box-shadow: 1px 6px 10px rgba(0, 0, 0, 0.05);
 }

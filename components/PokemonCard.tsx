@@ -42,11 +42,11 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
         <div className="flex gap-4 bg-white rounded-tl-xl rounded-tr-xl">
           <button
             className={`p-2 w-10 h-10 text-xl flex items-center justify-center rounded-full border-2
-              ${
-                liked
-                  ? "text-[#fd4878] border-[#fd4878]"
-                  : "text-gray-300 border-gray-300"
-              }
+               ${
+                 liked
+                   ? "text-[#fd4878] border-[#fd4878]"
+                   : "text-gray-300 border-gray-300"
+               }
               `}
             onClick={() => {
               if (user?.sub) {
